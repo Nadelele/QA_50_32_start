@@ -54,9 +54,9 @@ public class SelectorCSS {
         driver.get("https://ilcarro.web.app/search");
 
         driver.findElement(By.cssSelector("a[href='/terms-of-use']")).click();
-        driver.navigate().back();
         driver.findElement(By.cssSelector("#\\30.navigation-link")).click(); //\30  - unicode for 0. Just to train combined selector
         driver.findElement(By.cssSelector("a[href='/terms-of-use']"));
+        driver.navigate().back();
 
         WebElement loginLink = driver.findElement(By.cssSelector("a[href *= 'login']"));
         System.out.println("link: " + loginLink.getAttribute("href"));
@@ -66,6 +66,7 @@ public class SelectorCSS {
         driver.findElement(By.cssSelector("td[aria-label='" + startLabel + "']")).click();
         driver.findElement(By.cssSelector("td[aria-label='" + endLabel + "']")).click();
         driver.findElement(By.cssSelector("button[type='submit']")).click();
+        driver.navigate().to("https://ilcarro.web.app/search");
 
         driver.quit();
 
