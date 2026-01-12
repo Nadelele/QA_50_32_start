@@ -52,14 +52,22 @@ public class SelectorCSS {
         System.out.println(startLabel);
 
         driver.get("https://ilcarro.web.app/search");
+
+        driver.findElement(By.cssSelector("a[href='/terms-of-use']")).click();
+        driver.navigate().back();
+        driver.findElement(By.cssSelector("#\\30.navigation-link")).click(); //\30  - unicode for 0. Just to train combined selector
+        driver.findElement(By.cssSelector("a[href='/terms-of-use']"));
+
+        WebElement loginLink = driver.findElement(By.cssSelector("a[href *= 'login']"));
+        System.out.println("link: " + loginLink.getAttribute("href"));
+
         driver.findElement(By.cssSelector("a[href='search/results?city=Tel%20Aviv']")).click();
         driver.findElement(By.cssSelector("input[formcontrolname='dates']")).click();
         driver.findElement(By.cssSelector("td[aria-label='" + startLabel + "']")).click();
         driver.findElement(By.cssSelector("td[aria-label='" + endLabel + "']")).click();
         driver.findElement(By.cssSelector("button[type='submit']")).click();
-        driver.findElement(By.cssSelector("#\\30.navigation-link")).click(); //\30  - unicode for 0. Just to train combined selector
 
-        // driver.quit();
+        driver.quit();
 
     }
 
