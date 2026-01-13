@@ -67,6 +67,9 @@ public class SelectorCSS {
         driver.findElement(By.cssSelector("td[aria-label='" + endLabel + "']")).click();
         driver.findElement(By.cssSelector("button[type='submit']")).click();
         driver.navigate().to("https://ilcarro.web.app/search");
+        WebElement btnSignUp = driver.findElement(By.cssSelector("div.header a.navigation-link:nth-child(5)"));
+        WebElement btnLogIn = driver.findElement(By.cssSelector("div.header a.navigation-link:last-child"));
+       pause(5);
 
         driver.quit();
 
